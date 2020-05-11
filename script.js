@@ -226,7 +226,7 @@ function validateAnswer(radio) {
 const showResult = () => {
   result.innerHTML =
     `<h1>Your score is: ${count}</h1>
-    <h5>Visit<a href='https://f-adeniyi.github.io/findcountries'> f-adeniyi.github.io/world</a> to know more about countries in the world</h5>
+    <h5>Visit<a href='https://f-adeniyi.github.io/world'> f-adeniyi.github.io/world</a> to know more about countries in the world</h5>
   `
   result.style.display = "block";
   submitButton.style.display = 'none';
