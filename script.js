@@ -62,42 +62,7 @@ let questions = [
     answer: 'Fakaofo'
   }
 ]
-let question = [{
-  id: 1,
-  question: "Which of these git command is use to start a new repository?",
-  options: ['New', 'Clone', 'Init', 'Create'],
-  answer: 'Init'
-},
-{
-  id: 2,
-  question: "Which of the following is not a JavaScript framework?",
-  options: ['React.js', 'Node.js', 'Vue.js', 'Angular.js'],
-  answer: 'Node.js'
-},
-{
-  id: 3,
-  question: "As React.js is to JavaScript, so is _____ to PHP?",
-  options: ['Bootstrap', 'Laravel', 'Ionic', 'Cordova'],
-  answer: 'Laravel'
-},
-{
-  id: 4,
-  question: "Select the odd option out of the following ?",
-  options: ['HTML', 'BootStrap', 'Node.js', 'React.js'],
-  answer: 'Node.js'
 
-},
-{
-  id: 5,
-  question: "The world is currently battling with?",
-  options: ['Covid-19', 'Flu', 'Lockdown', 'Coronavirus'],
-  answer: 'Coronavirus'
-
-}
-
-
-
-]
 //Varibles//
 let quizContainer = document.querySelector('.quiz-container');
 quizContainer.style.display = 'block';
@@ -127,27 +92,28 @@ myQuestions.push(`
   `)
 
 questions.map((quiz, i) => {
+  let option=[]
   answers.push(quiz.answer)
-  let option = quiz.options.map((option, i) => {
-    return `
+  for (i = 0; i < quiz.options.length; i++) {
+    option.push( `
         <div>
           <h3>
-          <input type='radio' name='option' onclick='validateAnswer(this)' id=option${i}   value=${option}>
-          <label for='option${i}'>${option}</label>
+          <input type='radio' name='option' onclick='validateAnswer(this)' id=option${i}   value=${quiz.options[i]}>
+          <label for='option${i}'>${quiz.options[i]}</label>
         </h3> 
        </div>
-      `
-  })
-  myQuestions.push(
-    `<div class="container" id=${i}>
+      `)
+  }
+myQuestions.push(
+  `<div class="container" id=${i}>
       <div class="card">
         <h2 class='question'>${quiz.question}</h2>
         <div class='options'>
-        ${option}
+        ${option.join("")}
          </div>
       </div>
     </div>`
-  )
+)
 })
 questionCard.innerHTML = myQuestions.join('');
 let containers = document.querySelectorAll('.container');
