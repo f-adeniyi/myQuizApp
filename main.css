@@ -81,7 +81,9 @@ Header {
 .wrapper {
   text-align: center;
 }
-
+.options{
+  line-height:4em;
+}
 button {
   margin: 2em auto;
   width: 35%;
